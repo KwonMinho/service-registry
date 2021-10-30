@@ -1,11 +1,11 @@
 const Web3 = require("web3");
-const address = '0xB09617e8242BB5463605f0399409AF1d60E40713';
 const endpoint = 'ws://203.250.77.150:8546'
 const acc = '0x3f243FdacE01Cfd9719f7359c94BA11361f32471';
 const provider = new Web3.providers.WebsocketProvider(endpoint);
 const web3 = new Web3(provider);
 
-const abi = require('../deploy-contract/abi-service-registry.json');
+const abi = require('../current-deploy-contract/abi-registry.json');
+const address = '0x6012df3B6ac7D377322AF716d6FdA435d7C95Fb4';
 const serviceRegistry = new web3.eth.Contract(abi, address, {
     from: acc,
     gas: 2000000,
@@ -39,7 +39,7 @@ async function getService(){
     const password = '1234';
    // await web3.eth.personal.unlockAccount(acc, password);
     //const scv = await serviceRegistry.methods.getLatestBackupLog('test-app').call(option);
-    const scv = await serviceRegistry.methods.getServiceLocation('verifier-test').call();
+    const scv = await serviceRegistry.methods.getService('k-test').call();
     console.log(scv);
 }
 getService();
@@ -73,7 +73,7 @@ function _makeService(){
 function _makeHeader(){
     let header =new Array;
     header.push(
-        'verifier-test',
+        'k-test',
         acc,
         acc,
         'pslab',
