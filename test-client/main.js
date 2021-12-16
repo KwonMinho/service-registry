@@ -39,10 +39,22 @@ async function getService(){
     const password = '1234';
    // await web3.eth.personal.unlockAccount(acc, password);
     //const scv = await serviceRegistry.methods.getLatestBackupLog('test-app').call(option);
-    const scv = await serviceRegistry.methods.getService('k-test').call();
+    const scv = await serviceRegistry.methods.getService('t1').call()
     console.log(scv);
 }
 getService();
+
+
+
+async function getLatestStateVersion(){
+    const password = '1234';
+   // await web3.eth.personal.unlockAccount(acc, password);
+    //const scv = await serviceRegistry.methods.getLatestBackupLog('test-app').call(option);
+    const scv = await serviceRegistry.methods.getService('test-1').call({from: acc})
+    const stateVersion = scv.backup.logs.length+1;
+    console.log(stateVersion);
+}
+//getLatestStateVersion();
 
 
 
@@ -73,7 +85,7 @@ function _makeService(){
 function _makeHeader(){
     let header =new Array;
     header.push(
-        'k-test',
+        'test-1',
         acc,
         acc,
         'pslab',

@@ -1,0 +1,16 @@
+{
+  "name": "before-klaytn",
+  "version": "1.0.0",
+  "description": "",
+  "main": "test-klaytn.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "caver-js": "^1.6.5",
+    "fs": "^0.0.1-security",
+    "truffle-hdwallet-provider-klaytn": "^1.4.1"
+  }
+}
